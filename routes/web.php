@@ -66,3 +66,12 @@ $router->get('profile', function(){
 $router->get('profile/luthfi', ['as' => 'route.profile', function(){
     return 'Route luthfi';  
 }]);
+
+$router->group(['prefix'=>'admin', 'middleware' => 'auth', 'namespace'], function () use ($router) {
+    $router->get('home', function(){
+        return 'Home Admin';
+    });
+    $router->get('profile', function(){
+        return 'Profile Admin';
+    });
+});
